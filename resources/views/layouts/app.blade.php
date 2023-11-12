@@ -30,7 +30,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                    @auth
+                        @if(auth()->user()->perfil == 'profesor')
+                        <li class="nav-item">
+                        <a class="nav-link" href="/mostrar">Iniciar clase</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/matricula">Ver alumnos</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/cursos-matriculados">Cursos</a>
+                        </li>
+                        @elseif(auth()->user()->perfil == 'usuario')
+                         <li class="nav-item">
+                            <a class="nav-link" href="/matricula">Ver cursos</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/cursos-matriculados">Suscripciones</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/cursos-matriculados">Unirme clase</a>
+                        </li>
+                        @endif
+                    @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

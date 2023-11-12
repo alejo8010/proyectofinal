@@ -71,4 +71,6 @@ class RegisterController extends Controller
             'perfil' => $data['perfil']
         ]);
     }
+
+            
 }
